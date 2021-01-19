@@ -1,7 +1,7 @@
 import os
 from dotenv import load_dotenv, find_dotenv
 
-verison="0.4.6"
+verison="0.4.7"
 load_dotenv(find_dotenv())
 
 PORT = os.getenv('PORT')
