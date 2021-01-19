@@ -21,7 +21,7 @@ def changeHotFix():
 
 
 def changeMinor():
-    filename = "setup.py"
+    filename = "config.py"
     regex = r'[0-9]?[0-9].[0-9]?[0-9].[0-9]?[0-9]'
 
     with open(filename, 'r+') as f:
@@ -42,7 +42,7 @@ def changeMinor():
 
 
 def changeMajor():
-    filename = "setup.py"
+    filename = "config.py"
     regex = r'[0-9]?[0-9].[0-9]?[0-9].[0-9]?[0-9]'
 
     with open(filename, 'r+') as f:
