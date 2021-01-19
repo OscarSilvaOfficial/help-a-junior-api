@@ -12,6 +12,6 @@ if __name__ == '__main__':
         app = config.make_wsgi_app()
         server_log(ADDR, PORT)
         
-    server = make_server(f'{ADDR}', int(PORT), app)
+    server = make_server('0.0.0.0', 5000, app)
     server.serve_forever()
     
