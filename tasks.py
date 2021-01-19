@@ -90,3 +90,4 @@ def push(c, docs=False):
     c.run('git commit -m"{0}"'.format(msg))
     c.run('git tag -a {0} -m"New release"'.format(subs))
     c.run('git push origin {0}'.format(subs))
+    c.run('git merge {0}'.format(subs))
