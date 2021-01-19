@@ -1,8 +1,9 @@
 import re
 from invoke import task
 
+filename = 'api/config.py'
+
 def changeHotFix():
-    filename = "config.py"
     regex = r'[0-9]?[0-9].[0-9]?[0-9].[0-9]?[0-9]'
 
     with open(filename, 'r+') as f:
@@ -21,7 +22,6 @@ def changeHotFix():
 
 
 def changeMinor():
-    filename = "config.py"
     regex = r'[0-9]?[0-9].[0-9]?[0-9].[0-9]?[0-9]'
 
     with open(filename, 'r+') as f:
@@ -42,7 +42,6 @@ def changeMinor():
 
 
 def changeMajor():
-    filename = "config.py"
     regex = r'[0-9]?[0-9].[0-9]?[0-9].[0-9]?[0-9]'
 
     with open(filename, 'r+') as f:
@@ -77,7 +76,6 @@ def chooseManagementVersion(c, docs=False):
 @task
 def push(c, docs=False):
 
-    filename = "config.py"
     regex = r'[0-9]?[0-9].[0-9]?[0-9].[0-9]?[0-9]'
 
     with open(filename, 'r+') as f:
