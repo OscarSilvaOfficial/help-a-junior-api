@@ -1,7 +1,8 @@
 import re
 from invoke import task
+from fast_sql_manager import repository
 
-filename = 'api/config.py'
+filename = 'api/__init__.py'
 
 def changeHotFix():
     regex = r'[0-9]?[0-9].[0-9]?[0-9].[0-9]?[0-9]'
@@ -71,6 +72,41 @@ def chooseManagementVersion(c, docs=False):
         changeMajor()
     else:
         pass
+
+
+@task
+def run(c):
+    c.run('env FLASK_APP=api/run.py flask run')
+
+
+@task
+def initDB(c):
+    db = repository.Repository('localhost', 3307 or 3306, 'root', 'root')
+    db.createDataBase('junior_db')
+
+
+@task
+def initEnv(c):
+    
+    try:
+        c.run('inv initDB')
+        db = repository.Repository('localhost', 3307 or 3306, 'root', 'root', 'junior_db')
+        db.createTable('users', {
+            'id': 'int not null primary key auto_increment',
+            'user': 'varchar(50) not null',
+            'passwd': 'varchar(255) not null',
+            'user_name': 'varchar(50)',
+        })
+        db.createTable('posts', {
+            'id': 'int not null primary key auto_increment',
+            'user_id': 'int not null',
+            'post': 'varchar(255)',
+            'FOREIGN KEY (user_id)': 'REFERENCES users(id)'
+        })
+        print('Banco de dados iniciado')
+    except Exception as e:
+        print(e)
+    
 
 
 @task
