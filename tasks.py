@@ -111,6 +111,8 @@ def initEnv(c):
 
 @task
 def push(c, docs=False):
+    
+    c.run('inv chooseManagementVersion')
 
     regex = r'[0-9]?[0-9].[0-9]?[0-9].[0-9]?[0-9]'
 
@@ -118,7 +120,6 @@ def push(c, docs=False):
         text = f.read()
         subs = re.findall(regex, text)[0]
 
-    c.run('inv chooseManagementVersion')
     c.run('git add .')
     msg = input('Escreva a mensagem de commit: \n')
     c.run('git commit -m"{0}"'.format(msg))
