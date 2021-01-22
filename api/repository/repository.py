@@ -1,10 +1,17 @@
-from fast_sql_manager import repository
+from fast_sql_manager.repository import Repository
 
 
 class Repository(object):
     
-    def __init__(self, db=repository.Repository('localhost', 3307, 'root', 'root', 'junior_db')):
+    def __init__(self, db=Repository('localhost', 3307, 'root', 'root', 'junior_db')):
         self._base = db
     
-    def getPosts(self):
+    def selectPosts(self):
         return self._base.selectAll('posts')
+    
+    def insertPosts(self, values: tuple):
+        return self._base.insert(
+            'posts', 
+            ['user_id', 'post'],
+            values
+        ) 
