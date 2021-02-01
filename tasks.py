@@ -128,9 +128,3 @@ def push(c, docs=False):
     c.run('git push origin {0}'.format(subs))
     c.run('git push origin master')
     
-    
-@task
-def tests(c):
-    file_name = input('Qual arquivo deseja testar:\n')
-    path = os.path.dirname(os.path.abspath(__file__)) + '/api/tests/unit/test_{0}.py'.format(file_name)
-    c.run('python {0}'.format(path))
