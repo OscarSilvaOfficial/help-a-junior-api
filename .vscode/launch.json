@@ -5,12 +5,12 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Python: Flask",
+            "name": "help-a-junior-api",
             "type": "python",
             "request": "launch",
             "module": "flask",
             "env": {
-                "FLASK_APP": "/home/oscar/Git/ajude-um-junior/help-a-junior-api/api/run.py",
+                "FLASK_APP": "/home/oscar/Dev/help-a-junior-api/api/run.py",
                 "FLASK_ENV": "development",
                 "FLASK_DEBUG": "0"
             },

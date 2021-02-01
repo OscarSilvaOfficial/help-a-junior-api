@@ -1,6 +1,5 @@
 from flask import Flask
 
-
 class ApplicationManager(object):
 
     def __init__(self, app=Flask(__name__)):

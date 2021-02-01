@@ -81,16 +81,17 @@ def run(c):
 
 @task
 def initDB(c):
-    db = repository.Repository('localhost', 3307 or 3306, 'root', 'root')
+    passwd = input('Qual a senha do root MySQL \n')
+    db = repository.Repository('localhost', 3306, 'root', passwd)
     db.createDataBase('junior_db')
 
 
 @task
 def initEnv(c):
-    
+    passwd = input('Qual a senha do root MySQL \n')
     try:
         c.run('inv initDB')
-        db = repository.Repository('localhost', 3307 or 3306, 'root', 'root', 'junior_db')
+        db = repository.Repository('localhost', 3306, 'root', passwd, 'junior_db')
         db.createTable('users', {
             'id': 'int not null primary key auto_increment',
             'user': 'varchar(50) not null',
