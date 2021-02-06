@@ -1,7 +1,9 @@
-from flask import jsonify
 from api.models.user import Users
+from flask import jsonify
 
-
-def getUsers():
-  response = Users.query.all()
-  return jsonify(str(response[0]))
+def get_users():
+  
+  users = []
+  for user in Users.query.all():
+    users.append(str(user))
+  return jsonify(users)

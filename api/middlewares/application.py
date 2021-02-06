@@ -5,6 +5,7 @@ class ApplicationManager(object):
 
     def __init__(self, app=Flask(__name__)):
         self._app = app
+        self._session = sessionmaker()
 
     def getApp(self):    
         self._app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:root@localhost:3307/junior_db'
