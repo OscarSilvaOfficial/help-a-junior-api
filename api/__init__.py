@@ -1,5 +1,5 @@
 import os
 from dotenv import load_dotenv, find_dotenv
 
-verison="0.7.12"
+verison="0.8.12"
 load_dotenv(find_dotenv())

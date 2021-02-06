@@ -1,16 +1,18 @@
 from flask import jsonify, request
 from api.utils import format
 from api.models.post import Posts
-from api.middlewares.application import ApplicationManager
+import logging
 
-session = ApplicationManager().getDbSession()
 
-def get_posts():        
-    return jsonify(format.queryToList(Posts.query.all()))
+def get_posts():
+    log = format.create_log(request.full_path)
+    logging.info(log)        
+    response = format.queryToList(Posts.query.all())
+    return jsonify(response)
 
 
 def create_post():
-    payload = format.requestToDict(request.args)
+    """ payload = format.requestToDict(request.args)
     post = Posts(post=payload['post'], user_id=payload['user_id'])
     session.add(post)
     try:
@@ -22,4 +24,5 @@ def create_post():
     finally:
         session.close()
     
-    return 'ok'
+    return 'ok' """
+    pass
