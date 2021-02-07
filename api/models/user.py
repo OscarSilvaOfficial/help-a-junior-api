@@ -3,7 +3,7 @@ from api.middlewares.application import ApplicationManager
 from flask_sqlalchemy import SQLAlchemy
 
 
-app = ApplicationManager().getApp()
+app = ApplicationManager().get_app()
 db = SQLAlchemy(app)
 
 class Users(db.Model):

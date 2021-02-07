@@ -1,19 +1,8 @@
 import os
 import re
 
+
 local_path = os.path.abspath('api/logs')
-
-def requestToDict(args):    
-    return dict(args)
-
-def requestToTuple(args):
-    return tuple(requestToDict(args).values())
-
-def queryToList(args):
-    response = []
-    for arg in args:
-        response.append(str(arg))
-    return response
 
 def create_log(args):
     dirs = os.listdir(local_path)
@@ -27,6 +16,8 @@ def create_log(args):
         f.write(args)
         
     return 'Arquivo criado'
+
+
             
     
     
