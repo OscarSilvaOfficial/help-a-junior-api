@@ -1,6 +1,5 @@
-import os
-import re
-
+from api.configs.enviroment import SECRET_KEY
+import os, re, jwt
 
 local_path = os.path.abspath('api/logs')
 
@@ -17,7 +16,19 @@ def create_log(args):
         
     return 'Arquivo criado'
 
+def encript_passwd(passwd):
+    response = jwt.encode(
+        {"passwd": passwd}, 
+        SECRET_KEY, 
+        algorithm="HS256"
+    )
+    return response
 
-            
-    
+def decript_passwd(passwd):
+    response = jwt.decode(
+        passwd, 
+        SECRET_KEY, 
+        algorithms="HS256"
+    )
+    return response['passwd']
     

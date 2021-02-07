@@ -1,5 +1,5 @@
 from api.middlewares.application import ApplicationManager
-import api.routers.endpoints
+from api.routers import posts_urls, users_urls, login_urls
 
 app = ApplicationManager().get_app()
 

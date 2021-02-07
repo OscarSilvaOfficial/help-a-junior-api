@@ -1,0 +1,27 @@
+GET http://127.0.0.1:5000/users HTTP/1.1
+auth-token: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoiZG9uZGkifQ.EFnp35PkdepquIkSdwOqoMvfd2nBwV3eP8xNPZIFuzg
+
+###
+
+POST http://127.0.0.1:5000/users HTTP/1.1
+content-type: application/json
+
+{
+    "user": "dondi",
+    "passwd": "dondi8181",
+    "user_name": "Dinora Vicente"
+}
+
+###
+
+PATCH  http://127.0.0.1:5000/users/4 HTTP/1.1
+content-type: application/json
+
+{
+    "passwd": "dondi8181",
+    "user_name": "Vicente"
+}
+
+###
+
+DELETE  http://127.0.0.1:5000/users/1
