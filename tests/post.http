@@ -1,9 +1,11 @@
 GET http://127.0.0.1:5000/posts HTTP/1.1
+auth-token: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoiZG9uZGkifQ.EFnp35PkdepquIkSdwOqoMvfd2nBwV3eP8xNPZIFuzg
 
 ###
 
 POST http://127.0.0.1:5000/posts HTTP/1.1
 content-type: application/json
+auth-token: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoiZG9uZGkifQ.EFnp35PkdepquIkSdwOqoMvfd2nBwV3eP8xNPZIFuzg
 
 {
     "user_id": 2,
@@ -14,6 +16,7 @@ content-type: application/json
 
 PATCH  http://127.0.0.1:5000/posts/1 HTTP/1.1
 content-type: application/json
+auth-token: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoiZG9uZGkifQ.EFnp35PkdepquIkSdwOqoMvfd2nBwV3eP8xNPZIFuzg
 
 {
     "user_id": 2,
@@ -23,3 +26,4 @@ content-type: application/json
 ###
 
 DELETE  http://127.0.0.1:5000/posts/1
+auth-token: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoiZG9uZGkifQ.EFnp35PkdepquIkSdwOqoMvfd2nBwV3eP8xNPZIFuzg

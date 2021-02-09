@@ -1,5 +1,3 @@
 invoke==1.5.0
-pyramid==1.10.5
 flask==1.1.2
-fast-sql-manager==0.1.7
 python-dotenv==0.15.0

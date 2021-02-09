@@ -33,8 +33,8 @@ def authenticated(func):
       token = request.headers['auth-token']
       try:
         jwt.decode(token, SECRET_KEY, algorithms="HS256")
-      except Exception as e:
-        return Response(e, status=400)
+      except jwt.DecodeError:
+        return Response('Token de autenticação incorreto', status=400)
     else:
       return Response('Não existe token de autenticação', status=400)
     return func(*args, **kwargs)

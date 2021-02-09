@@ -1,10 +1,11 @@
 GET http://127.0.0.1:5000/users HTTP/1.1
-auth-token: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoiZG9uZGkifQ.EFnp35PkdepquIkSdwOqoMvfd2nBwV3eP8xNPZIFuzg
 
 ###
 
 POST http://127.0.0.1:5000/users HTTP/1.1
 content-type: application/json
+auth-token: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoiZG9uZGkifQ.EFnp35PkdepquIkSdwOqoMvfd2nBwV3eP8xNPZIFuzg
+
 
 {
     "user": "dondi",
@@ -16,6 +17,8 @@ content-type: application/json
 
 PATCH  http://127.0.0.1:5000/users/4 HTTP/1.1
 content-type: application/json
+auth-token: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoiZG9uZGkifQ.EFnp35PkdepquIkSdwOqoMvfd2nBwV3eP8xNPZIFuzg
+
 
 {
     "passwd": "dondi8181",
@@ -25,3 +28,5 @@ content-type: application/json
 ###
 
 DELETE  http://127.0.0.1:5000/users/1
+auth-token: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoiZG9uZGkifQ.EFnp35PkdepquIkSdwOqoMvfd2nBwV3eP8xNPZIFuzg
+

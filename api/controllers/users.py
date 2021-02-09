@@ -1,5 +1,5 @@
 from api.middlewares.application import ApplicationManager
-from api.controllers.login import authenticated
+from api.controllers.login import authenticated as auth
 from api.utils.functions import encript_passwd
 from flask import jsonify, request, Response
 from flask_sqlalchemy import SQLAlchemy
@@ -11,7 +11,7 @@ from flask import jsonify
 app = ApplicationManager().get_app()
 db = SQLAlchemy(app)
 
-@authenticated
+@auth
 def get_users():
   
   users = []
@@ -20,7 +20,7 @@ def get_users():
     
   return jsonify(users)
 
-@authenticated
+@auth
 def create_users():
   payload = dict(request.get_json(force=True))
   user = Users(
@@ -37,7 +37,7 @@ def create_users():
   
   return Response('Usuário criado', status=201)
 
-@authenticated
+@auth
 def update_users(user_id):
     payload = dict(request.get_json(force=True))
     user = db.session.query(Users).get(user_id)
@@ -57,8 +57,8 @@ def update_users(user_id):
         return Response(str(e), status=400)
     
     return Response('Usuário alterado', status=204)
-  
-@authenticated
+ 
+@auth 
 def delete_users(user_id):
     try:
         delete = db.session.query(Users).get(user_id)
