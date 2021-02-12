@@ -1,11 +1,13 @@
 from api.middlewares.application import ApplicationManager
 from api.controllers.login import authenticated as auth
+from api.controllers.email import create_email
 from api.utils.functions import encript_passwd
 from flask import jsonify, request, Response
 from flask_sqlalchemy import SQLAlchemy
 from pymysql.err import IntegrityError
 from api.models.user import Users
 from flask import jsonify
+import logging
 
 
 app = ApplicationManager().get_app()
@@ -34,6 +36,11 @@ def create_users():
       db.session.commit()
   except IntegrityError as e:
       return Response(str(e), status=400)
+    
+  try:
+    create_email('oscarkaka222@gmail.com', "Conta criada", 'Olá, sua conta foi criada com sucesso')
+  except Exception as e:
+    return Response(e, status=400)
   
   return Response('Usuário criado', status=201)
 
@@ -55,6 +62,12 @@ def update_users(user_id):
         db.session.commit()
     except IntegrityError as e:
         return Response(str(e), status=400)
+    
+    
+    try:
+      create_email('oscarkaka222@gmail.com', "Conta criada", 'Olá, sua conta foi criada com sucesso')
+    except Exception as e:
+      return Response(e, status=400)
     
     return Response('Usuário alterado', status=204)
  
